@@ -1,0 +1,158 @@
+p
+{
+    width:          85vw; /* The multiplier is the % of screen */
+    margin-left:    auto; /* -\                                          */
+    margin-right:   auto; /* -L It allows to have the p at screen center */
+    text-align:     justify;
+    text-align:     inter-word;
+    color:          #e6e6e6;
+    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+body
+{
+    background-color: #333333
+}
+
+/*
+ * Code preformated
+ *
+ */
+pre
+{
+    width:          85vw; /* The multiplier is the % of screen */
+    margin-left:    auto; /* -\                                          */
+    margin-right:   auto; /* -L It allows to have the p at screen center */
+    border:         1px solid #76f934;
+    color:          #ffffff;
+    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: #262626
+}
+
+/*
+ * Text inside Blockquote
+ *
+ */
+blockquote>p
+{
+    border:         1px solid #76f934;
+    color:          #ffffff;
+    text-align:     left;
+    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+blockquote>p:before
+{
+    content: ">_   "; /* white space to add extra space */
+}
+
+/*
+ * Quote inside p
+ *
+ */
+
+p>code
+{
+    font-size: 1em;
+    border: 1px solid #3f3f3f;
+    background-color: #262626;
+    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/*
+ * HEADING STUFF
+ *
+ * It's made to be tidy. Bonus point, they auto increment a value before the
+ * name to know about one we are talking about.
+ *
+ * source: http://2ality.com/2012/01/numbering-headingshtml.html
+ *
+ */
+
+h1
+{
+    font-size: 3em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    counter-reset: h2counter;
+}
+
+h2
+{
+    font-size: 2em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    counter-reset: h3counter;
+    padding-left: 2%
+}
+
+h2:before
+{
+    content: counter(h2counter) ".\0000a0\0000a0";
+    counter-increment: h2counter;
+}
+
+h3
+{
+    font-size: 1em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    counter-reset: h4counter;
+    padding-left: 4%
+}
+
+h3:before
+{
+    content: counter(h3counter) ".\0000a0\0000a0";
+    counter-increment: h3counter;
+}
+
+h4
+{
+    font-size: 1em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    counter-reset: h5counter;
+    padding-left: 6%
+}
+
+h4:before
+{
+    content: counter(h4counter) ".\0000a0\0000a0";
+    counter-increment: h4counter;
+}
+
+h5
+{
+    font-size: 1em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    counter-reset: h6counter;
+    padding-left: 8%
+}
+
+h5:before
+{
+    content: counter(h5counter) ".\0000a0\0000a0";
+    counter-increment: h5counter;
+}
+
+h6
+{
+    font-size: 1em;
+    font-style: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #76f934;
+    padding-left: 10%
+}
+
+h6:before
+{
+    content: counter(h6counter) ".\0000a0\0000a0";
+    counter-increment: h6counter;
+}
