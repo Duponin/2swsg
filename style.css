@@ -1,12 +1,69 @@
+:root
+{
+    --screen-width-multiplier: 85vw;
+    --border-p: 1px solid #76f934;
+    --border-code: 1px solid #3f3f3f;
+    --code-bg-color: #2626262;
+
+    --quote-color: #ffffff;
+    --quote-font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+    --p-color: #e6e6e6;
+    --p-font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+    --header-font: "Lucida Console", Monaco, monospace;
+}
+
 p
 {
-    width:          85vw; /* The multiplier is the % of screen */
-    margin-left:    auto; /* -\                                          */
-    margin-right:   auto; /* -L It allows to have the p at screen center */
-    text-align:     justify;
-    text-align:     inter-word;
-    color:          #e6e6e6;
-    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    text-align: inter-word;
+    color: var(--p-color);
+    font-family: var(--p-font);
+}
+
+a:link
+{
+    text-align: justify;
+    text-align: inter-word;
+    color: var(--p-color);
+    font-family: var(--p-font);
+    text-decoration: underline;
+}
+
+/*
+ * Even if it's buggy, I keep it.
+ * Maybe it will magicly works?
+ *
+ */
+a:visited
+{
+    text-align: justify;
+    text-align: inter-word;
+    color: var(--p-color);
+    font-family: var(--p-font);
+    text-decoration: line-through underline overline;
+}
+
+nav
+{
+    width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+li:before {
+  content: "• ";
+  color: white; /* or whatever color you prefer */
 }
 
 body
@@ -20,13 +77,13 @@ body
  */
 pre
 {
-    width:          85vw; /* The multiplier is the % of screen */
-    margin-left:    auto; /* -\                                          */
-    margin-right:   auto; /* -L It allows to have the p at screen center */
-    border:         1px solid #76f934;
-    color:          #ffffff;
-    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    background-color: #262626
+    width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #76f934;
+    color: #ffffff;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: #262626;
 }
 
 /*
@@ -35,10 +92,10 @@ pre
  */
 blockquote>p
 {
-    border:         1px solid #76f934;
-    color:          #ffffff;
-    text-align:     left;
-    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    border: var(--border-p);
+    color: #ffffff;
+    text-align: left;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 blockquote>p:before
@@ -55,8 +112,38 @@ p>code
 {
     font-size: 1em;
     border: 1px solid #3f3f3f;
+    border: var(--border-code);
+    background-color: var(--code-bg-color);
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/*
+ * TABLE STUFF
+ *
+ */
+
+table
+{
+    width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+}
+
+th
+{
     background-color: #262626;
-    font-family:    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: var(--p-color);
+    font-family: var(--p-font);
+    font-style: bold;
+    font-size: 1.5em;
+}
+
+td
+{
+    background-color: #3f3f3f;
+    color: var(--p-color);
+    font-family: var(--p-font);
 }
 
 /*
@@ -73,7 +160,7 @@ h1
 {
     font-size: 3em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     counter-reset: h2counter;
 }
@@ -82,7 +169,7 @@ h2
 {
     font-size: 2em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     counter-reset: h3counter;
     padding-left: 2%
@@ -98,7 +185,7 @@ h3
 {
     font-size: 1em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     counter-reset: h4counter;
     padding-left: 4%
@@ -114,7 +201,7 @@ h4
 {
     font-size: 1em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     counter-reset: h5counter;
     padding-left: 6%
@@ -130,7 +217,7 @@ h5
 {
     font-size: 1em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     counter-reset: h6counter;
     padding-left: 8%
@@ -146,7 +233,7 @@ h6
 {
     font-size: 1em;
     font-style: bold;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: var(--header-font);
     color: #76f934;
     padding-left: 10%
 }
@@ -155,4 +242,4 @@ h6:before
 {
     content: counter(h6counter) ".\0000a0\0000a0";
     counter-increment: h6counter;
-}
+
