@@ -96,6 +96,8 @@ blockquote>p
     color: #ffffff;
     text-align: left;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 blockquote>p:before
@@ -145,6 +147,35 @@ td
     color: var(--p-color);
     font-family: var(--p-font);
 }
+
+/*
+ * Image stuff
+ *
+ */
+
+img
+{
+    max-width: var(--screen-width-multiplier);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figcaption
+{
+    color: var(--p-color);
+    font-family: var(--p-font);
+    max-width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 
 /*
  * HEADING STUFF
