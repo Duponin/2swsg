@@ -153,27 +153,33 @@ td
  *
  */
 
-img
+figure
+{
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    margin: 1em 0;
+}
+
+figure img
 {
     max-width: var(--screen-width-multiplier);
-    display: block;
     margin-left: auto;
     margin-right: auto;
+    display: block;
+    vertical-align: center;
 }
 
 figcaption
 {
     color: var(--p-color);
     font-family: var(--p-font);
+    text-align: center;
+    font-style: italic;
     max-width: var(--screen-width-multiplier);
     margin-left: auto;
     margin-right: auto;
-}
-
-figure
-{
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 
