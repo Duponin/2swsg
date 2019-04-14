@@ -182,6 +182,11 @@ figcaption
     margin-right: auto;
 }
 
+/*
+ * Tags with pandoc
+ *
+ */
+
 .author
 {
     text-align: right;
