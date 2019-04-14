@@ -2,7 +2,7 @@
 {
     --screen-width-multiplier: 85vw;
     --border-p: 1px solid #76f934;
-    --border-code: 1px solid #3f3f3f;
+    --border-code: 1px solid white;
     --code-bg-color: #2626262;
 
     --quote-color: #ffffff;
