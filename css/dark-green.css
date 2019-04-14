@@ -87,9 +87,16 @@ pre
 }
 
 /*
- * Text inside Blockquote
+ * Blockquote
  *
  */
+
+blockquote
+{
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 blockquote>p
 {
     border: var(--border-p);
@@ -115,6 +122,7 @@ p>code
     font-size: 1em;
     border: 1px solid #3f3f3f;
     border: var(--border-code);
+    border-radius: 5px;
     background-color: var(--code-bg-color);
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
