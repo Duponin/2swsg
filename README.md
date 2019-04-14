@@ -2,6 +2,10 @@
 
 This project aims to build a suckless Simple Static Web Site Generator.
 
+# Warning
+
+This repo is currently is very early alpha thus it's not yet functionnal.
+
 ## What do you mean by `suckless`?
 
 This software is not made to have pretty and fancy features, aka the door to
