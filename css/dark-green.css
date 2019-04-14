@@ -134,6 +134,8 @@ p>code
 
 table
 {
+    display: block;
+    overflow: auto;
     width: var(--screen-width-multiplier);
     margin-left: auto;
     margin-right: auto;
@@ -142,11 +144,13 @@ table
 
 th
 {
+    white-space: nowrap;
     background-color: #262626;
     color: var(--p-color);
     font-family: var(--p-font);
     font-style: bold;
     font-size: 1.5em;
+    padding-right: 10px;
 }
 
 td
