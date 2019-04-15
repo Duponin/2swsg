@@ -166,6 +166,7 @@ th
 
 td
 {
+    border-top: 1px solid #76f934;
     background-color: #3f3f3f;
     color: var(--p-color);
     font-family: var(--p-font);
