@@ -40,3 +40,54 @@ It. Generates. Website.
 
 Nothing else. (Yeah I know, it also manage it. Useful thing to ensure a proper
 administration (such as page update, 301 error code))
+
+# Config
+
+Config is separated between multiple files.
+
+**Important notes:** dates must be write as `year month day` and nothing else.
+Spaces are not well yet supported. Avoid them as much as you can (for path).
+
+## `site.yml`
+
+| Key              | Default                | Explanation                                   |
+| :----            | :--------              | :------------                                 |
+| site\_name       | My beautiful website   | Your website name                             |
+| site\_domain     | mybeautifulwebsite.org | Your website's domain                         |
+| site\_page       | index.html             | You don't have to touch it[1]                 |
+| site\_order      | day                    | How your articles are ordered[2]              |
+| site\_standalone | false                  | Are your css and cie bundled in html file     |
+| site\_generator  | pandoc                 | The engine that will generate your website[3] |
+| site\_date\_sep  | -                      | Date field separator                          |
+| site\_drafts     | drafts                 | Drafts folder                                 |
+
+### `[1]`
+
+If you want to have anything else as filename generated. With `index.html`
+Apache and Nginx don't show a trailing filename in URL bar. Fancier.
+
+### `[2]`
+
+You have available :
+
+* `plain` : everything at root
+* `year ` : everything by year
+* `month ` : everything by year then month
+* `day ` : everything by year then month then day
+
+In any case, articles are put in their own folder.
+
+### `[3]`
+
+Depending on the gerenator, articles's metadata aren't declared at the same
+place. You are free to pick the one you want, be just sure to choose a supported
+one. If it's not supported, feel free to adjust 2swsg or to open an issue to
+request that engine.
+
+Currently supported:
+
+* `pandoc`
+
+# Credits
+
+YAML parser in Bash: [here](https://github.com/jasperes/bash-yaml)
