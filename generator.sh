@@ -118,6 +118,7 @@ function transform_draft_to_article
     cp -rv $DRAFT_PATH $PATH_DIR
 }
 
+# All the logic part is here, calling functions.
 remind_site_parameters 
 list_drafts
 get_user_draft
