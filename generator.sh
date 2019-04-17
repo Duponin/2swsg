@@ -89,7 +89,12 @@ function get_article_metadata
     fi
 
     DRAFT_PATH="$site_drafts/$DRAFT_ARTICLE_SELECTED"
-    create_variables $DRAFT_PATH
+
+    # Test if a correct file is found. If not, exit the program.
+    ls "$DRAFT_PATH/$DRAFT_NAME" 2> /dev/null || \
+        echo "No correct file found! Exiting..."; exit 1
+
+    create_variables "$DRAFT_PATH/$DRAFT_NAME"
 }
 
 function sanitize_title
@@ -100,7 +105,8 @@ function sanitize_title
 function create_article_directory
 {
     STD_SITE_DIR="./site"
-    PATH_DIR="$(echo $STD_SITE_DIR/$SANITIZE_TITLE)"
+    PATH_DIR="$(echo $STD_SITE_DIR/$date/$SANITIZE_TITLE)"
+    echo $PATH_DIR
     mkdir -p ./site/$(echo $PATH_DIR)
 }
 
@@ -116,6 +122,7 @@ remind_site_parameters
 list_drafts
 get_user_draft
 get_article_metadata
+generate_article_path
 sanitize_title
 create_article_directory
 transform_draft_to_article
