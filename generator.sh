@@ -14,6 +14,7 @@ DRAFTS_DIR="$site_drafts"
 # Text colors
 LIGHT_BLUE="\033[1;34m"
 ORANGE="\033[0;33m"
+GREEN="\033[0;32m"
 WHITE="\033[1;37m"
 NC="\033[0m"
 
@@ -66,16 +67,16 @@ function generate_article_path
 {
     if [[ $site_order = "day" ]]
     then
-        PATH_DIR=$(echo $date | awk -F $site_date_sep '{print $1 "/" $2 "/" $3}')
+        ARTICLE_DIR=$(echo $date | awk -F $site_date_sep '{print $1 "/" $2 "/" $3}')
     elif [[ $site_order = "month" ]]
     then
-        PATH_DIR=$(echo $date | awk -F $site_date_sep '{print $1 "/" $2}')
+        ARTICLE_DIR=$(echo $date | awk -F $site_date_sep '{print $1 "/" $2}')
     elif [[ $site_order = "year" ]]
     then
-        PATH_DIR=$(echo $date | awk -F $site_date_sep '{print $1}')
+        ARTICLE_DIR=$(echo $date | awk -F $site_date_sep '{print $1}')
     elif [[ $site_order = "plain"  ]]
     then
-        PATH_DIR=""
+        ARTICLE_DIR=""
     fi
 }
 
@@ -91,7 +92,7 @@ function get_article_metadata
     DRAFT_PATH="$site_drafts/$DRAFT_ARTICLE_SELECTED"
 
     # Test if a correct file is found. If not, exit the program.
-    #ls "$DRAFT_PATH/$DRAFT_NAME" 2> /dev/null || echo "No correct file found! Exiting..."; exit 1
+    #ls "$DRAFT_PATH/$DRAFT_NAME" || echo "No correct file found! Exiting..."; exit 1
 
     create_variables "$DRAFT_PATH/$DRAFT_NAME"
 }
@@ -103,9 +104,9 @@ function sanitize_title
 
 function create_article_directory
 {
-    STD_SITE_DIR="./site"
-    PATH_DIR="$(echo $STD_SITE_DIR/$PATH_DIR/$SANITIZE_TITLE)"
-    mkdir -p $(echo $PATH_DIR)
+    SITE_DIR="./site"
+    ARTICLE_LOCATION="$(echo $SITE_DIR/$ARTICLE_DIR/$SANITIZE_TITLE)"
+    mkdir -p $(echo $ARTICLE_LOCATION)
 }
 
 function transform_draft_to_article
@@ -113,7 +114,7 @@ function transform_draft_to_article
     # Currently it's pandoc specific
     $GENERATOR $DRAFT_PATH/draft.md --css=./css/dark-green.css --template=./templates/html5.template -o $DRAFT_PATH/$site_page
     # Then copy draft to site
-    cp -r $DRAFT_PATH/* $PATH_DIR/
+    cp -r $DRAFT_PATH/* $ARTICLE_LOCATION/
 
 }
 
@@ -126,5 +127,8 @@ generate_article_path
 sanitize_title
 create_article_directory
 transform_draft_to_article
+
+printf "${GREEN}Everything goes fine.
+You can find your article in the correct folder.\n"
 
 exit 0
