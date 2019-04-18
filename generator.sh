@@ -113,7 +113,8 @@ function transform_draft_to_article
     # Currently it's pandoc specific
     $GENERATOR $DRAFT_PATH/draft.md --css=./css/dark-green.css --template=./templates/html5.template -o $DRAFT_PATH/$site_page
     # Then copy draft to site
-    cp -rv $DRAFT_PATH $PATH_DIR
+    cp -r $DRAFT_PATH/* $PATH_DIR/
+
 }
 
 # All the logic part is here, calling functions.
