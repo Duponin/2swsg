@@ -60,6 +60,7 @@ Spaces are not well yet supported. Avoid them as much as you can (for path).
 | site\_generator  | pandoc                 | The engine that will generate your website[3] |
 | site\_date\_sep  | -                      | Date field separator                          |
 | site\_drafts     | drafts                 | Drafts folder                                 |
+| site\_site       | site                   | Site folder, aka generated articles           |
 
 ### `[1]`
 
