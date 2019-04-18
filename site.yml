@@ -1,0 +1,9 @@
+site_name: My beautiful website
+site_domain: mybeautifulwebsite.org
+site_page: index.html
+site_order: day
+site_standalone: false
+site_generator: pandoc
+site_date_sep: -
+site_drafts: drafts
+site_dir: site

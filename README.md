@@ -41,44 +41,49 @@ It. Generates. Website.
 Nothing else. (Yeah I know, it also manage it. Useful thing to ensure a proper
 administration (such as page update, 301 error code))
 
-# How to use it?
+# Config
 
-The software is cut in multiple config files.
+Config is separated between multiple files.
 
-Currently there are no config test so be careful to enter correct values.
+**Important notes:** dates must be write as `year month day` and nothing else.
+Spaces are not well yet supported. Avoid them as much as you can (for path).
 
 ## `site.yml`
 
-Contains all the informations about the website. It should never be edited once
-the website is generated.
+| Key              | Default                | Explanation                                   |
+| :----            | :--------              | :------------                                 |
+| site\_name       | My beautiful website   | Your website name                             |
+| site\_domain     | mybeautifulwebsite.org | Your website's domain                         |
+| site\_page       | index.html             | You don't have to touch it[1]                 |
+| site\_order      | day                    | How your articles are ordered[2]              |
+| site\_standalone | false                  | Are your css and cie bundled in html file     |
+| site\_generator  | pandoc                 | The engine that will generate your website[3] |
+| site\_date\_sep  | -                      | Date field separator                          |
+| site\_drafts     | drafts                 | Drafts folder                                 |
+| site\_site       | site                   | Site folder, aka generated articles           |
 
-| value            | default                | explanation                                                                                                                              |
-| :------          | :--------              | :------------                                                                                                                            |
-| site\_name       | My beautiful website   | The name of your website                                                                                                                 |
-| site\_domain     | mybeautifulwebsite.org | The domain on which your website is hosted                                                                                               |
-| site\_page       | index.html             | The name on which your file will be saved. index.html allows apache/nginx to autoload it without have a trailing `index.html` in URL bar |
-| site\_order      | day                    | How your article will be sorted. More info below                                                                                         |
-| site\_standalone | false                  | Bundle or not ressources inside the HTML file. `false` is adviced to avoid broken dependencies (if many CSS or so)                       |
-| site\_generator  | pandoc                 | Software used to generate the page. More info below                                                                                      |
-| site\_date\_sep  | -                      | Date separator. Must be Year Month Day, nothing else is accepted. " character is forbidden                                               |
+### `[1]`
 
-### order
+If you want to have anything else as filename generated. With `index.html`
+Apache and Nginx don't show a trailing filename in URL bar. Fancier.
 
-Allows you to choose how your website will be ordered.
+### `[2]`
 
-* `plain` : everything in root, a bit messy but meh
-* `year` : articles are grouped by year
-* `month` : articles are grouped by year then month
-* `day ` : articles are grouped by yeah then month then day
+You have available :
 
-Whatever the order choosed, the article will always be in it's own directory
-named with article's name (set as metadata).
+* `plain` : everything at root
+* `year ` : everything by year
+* `month ` : everything by year then month
+* `day ` : everything by year then month then day
 
-### generator
+In any case, articles are put in their own folder.
 
-Depending on the generator, page's metadata aren't declared to the same place.
-You are free to pick the one you want, be just sure to choose a supported one.
-If it's isn't supported, feel free to adjust 2swsg or to open an issue.
+### `[3]`
+
+Depending on the gerenator, articles's metadata aren't declared at the same
+place. You are free to pick the one you want, be just sure to choose a supported
+one. If it's not supported, feel free to adjust 2swsg or to open an issue to
+request that engine.
 
 Currently supported:
 

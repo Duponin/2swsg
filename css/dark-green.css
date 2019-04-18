@@ -55,13 +55,26 @@ nav
     margin-right: auto;
 }
 
-ul {
+ul
+{
     list-style-type: none;
     margin-left: 0;
     margin-right: 0;
 }
 
-li:before {
+li
+{
+    width: var(--screen-width-multiplier);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    text-align: inter-word;
+    color: var(--p-color);
+    font-family: var(--p-font);
+}
+
+li:before
+{
   content: "• ";
   color: white; /* or whatever color you prefer */
 }
@@ -117,12 +130,10 @@ blockquote>p:before
  *
  */
 
-p>code
+code
 {
-    font-size: 1em;
-    border: 1px solid #3f3f3f;
-    border: var(--border-code);
-    border-radius: 5px;
+    font-size: 0.8em;
+    font-style: italic;
     background-color: var(--code-bg-color);
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -155,6 +166,7 @@ th
 
 td
 {
+    border-top: 1px solid #76f934;
     background-color: #3f3f3f;
     color: var(--p-color);
     font-family: var(--p-font);
