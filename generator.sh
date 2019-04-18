@@ -104,7 +104,7 @@ function sanitize_title
 function create_article_directory
 {
     STD_SITE_DIR="./site"
-    PATH_DIR="$(echo $STD_SITE_DIR/$date/$SANITIZE_TITLE)"
+    PATH_DIR="$(echo $STD_SITE_DIR/$PATH_DIR/$SANITIZE_TITLE)"
     mkdir -p $(echo $PATH_DIR)
 }
 
