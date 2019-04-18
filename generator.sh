@@ -104,8 +104,7 @@ function sanitize_title
 
 function create_article_directory
 {
-    SITE_DIR="./site"
-    ARTICLE_LOCATION="$(echo $SITE_DIR/$ARTICLE_DIR/$SANITIZE_TITLE)"
+    ARTICLE_LOCATION="$(echo $site_dir/$ARTICLE_DIR/$SANITIZE_TITLE)"
     mkdir -p $(echo $ARTICLE_LOCATION)
 }
 

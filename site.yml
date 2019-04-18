@@ -6,3 +6,4 @@ site_standalone: false
 site_generator: pandoc
 site_date_sep: -
 site_drafts: drafts
+site_dir: site
