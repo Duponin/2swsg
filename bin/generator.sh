@@ -3,11 +3,12 @@
 # Configure
 set -e
 source ./lib/yaml.sh
+
 DRAFT_NAME="draft.md"
 GENERATOR="pandoc"
 
 # Load config file
-create_variables ./site.yml
+create_variables ./config/site.yml
 
 DRAFTS_DIR="$site_drafts"
 
