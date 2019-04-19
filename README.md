@@ -41,6 +41,17 @@ It. Generates. Website.
 Nothing else. (Yeah I know, it also manage it. Useful thing to ensure a proper
 administration (such as page update, 301 error code))
 
+# Terminology
+
+Some words can be though to understand, even with the context.
+
+| Word    | Explanation                                                        |
+|:-----   |:------------                                                       |
+| draft   | A draft a something write by a writer. It can be published or not. |
+| article | An article is something processed by an engine to be reader ready. |
+| engine  | An engine is a software that transform a draft into an article.    |
+| site    | A site is a group of articles that will accessed by a reader.      |
+
 # Config
 
 Config is separated between multiple files.
@@ -57,9 +68,10 @@ Spaces are not well yet supported. Avoid them as much as you can (for path).
 | site\_page       | index.html             | You don't have to touch it[1]                 |
 | site\_order      | day                    | How your articles are ordered[2]              |
 | site\_standalone | false                  | Are your css and cie bundled in html file     |
-| site\_generator  | pandoc                 | The engine that will generate your website[3] |
+| site\_engine     | pandoc                 | The engine that will generate your website[3] |
 | site\_date\_sep  | -                      | Date field separator                          |
 | site\_drafts     | drafts                 | Drafts folder                                 |
+| site\_dir        | articles               | Where the site will look for articles         |
 
 ### `[1]`
 

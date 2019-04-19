@@ -5,7 +5,7 @@ set -e
 source ./lib/yaml.sh
 
 DRAFT_NAME="draft.md"
-GENERATOR="pandoc"
+ENGINE="pandoc"
 
 # Load config file
 create_variables ./config/site.yml
