@@ -1,0 +1,8 @@
+article_css: ./css/dark-green.css
+article_template: ./templates/pandoc/article.template
+article_math: --mathml
+article_toc: true
+root_index_css: ./css/dark-green.css
+root_index_template: ./templates/pandoc/root_index.template
+root_index_math: --mathml
+root_index_toc: false
