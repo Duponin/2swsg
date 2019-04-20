@@ -111,8 +111,6 @@ function create_article_directory
 
 function transform_draft_to_article
 {
-    # # Currently it's pandoc specific
-    # $GENERATOR $DRAFT_PATH/draft.md --css=./css/dark-green.css --template=./templates/html5.template -o $DRAFT_PATH/$site_page
     transform_to_html "$DRAFT_PATH/draft.md" "$DRAFT_PATH/$site_page" "article"
     # Then copy draft to site
     cp -r $DRAFT_PATH/* $ARTICLE_LOCATION/
