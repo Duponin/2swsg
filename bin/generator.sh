@@ -4,10 +4,10 @@
 set -e
 source ./lib/yaml.sh
 source ./lib/transform-to-html.sh
-
-DRAFT_NAME="draft.md"
+source ./lib/get-article-metadata.sh
 
 # Load config file
+create_variables ./config/config.yml
 create_variables ./config/site.yml
 
 DRAFTS_DIR="$site_drafts"
@@ -81,23 +81,6 @@ function generate_article_path
     fi
 }
 
-function get_article_metadata
-{
-    # Test if condition are corrects
-    if [[ -z $DRAFT_ARTICLE_SELECTED ]]
-    then
-        printf "No draft selected\n"
-        exit 1
-    fi
-
-    DRAFT_PATH="$site_drafts/$DRAFT_ARTICLE_SELECTED"
-
-    # Test if a correct file is found. If not, exit the program.
-    #ls "$DRAFT_PATH/$DRAFT_NAME" || echo "No correct file found! Exiting..."; exit 1
-
-    create_variables "$DRAFT_PATH/$DRAFT_NAME"
-}
-
 function sanitize_title
 {
     SANITIZE_TITLE="$(echo $title | sed 's/\ /-/g')" # " " -> "-"
@@ -111,7 +94,7 @@ function create_article_directory
 
 function transform_draft_to_article
 {
-    transform_to_html "$DRAFT_PATH/draft.md" "$DRAFT_PATH/$site_page" "article"
+    transform_to_html "$DRAFT_PATH/$draft_name" "$DRAFT_PATH/$site_page" "article"
     # Then copy draft to site
     cp -r $DRAFT_PATH/* $ARTICLE_LOCATION/
 
@@ -121,7 +104,7 @@ function transform_draft_to_article
 remind_site_parameters 
 list_drafts
 get_user_draft
-get_article_metadata
+get_article_metadata "$site_drafts/$DRAFT_ARTICLE_SELECTED"
 generate_article_path
 sanitize_title
 create_article_directory
