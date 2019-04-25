@@ -38,8 +38,7 @@ function list_drafts
 function get_user_draft
 {
     printf "${WHITE}Choose your draft:${NC} ('q' to exit)\n"
-    read -s USER_SELECTION 
-    printf "%s\n" "$USER_SELECTION"
+    read USER_SELECTION 
 
     if [[ $USER_SELECTION = "q" || $USER_SELECTION = "Q"  ]]
     then
