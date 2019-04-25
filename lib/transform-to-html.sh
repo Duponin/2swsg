@@ -21,17 +21,19 @@ function transform_to_html
         case "$TYPE" in
             article)
                 CSS="--css=$article_css"
-                TEMPLATE="--templat=$article_template"
+                TEMPLATE="--template=$article_template"
                 if [[ "$article_toc" = "true" ]]; then TOC="--toc"; fi
                 MATH="$article_math"
             ;;
             root_index)
                 CSS="--css=$root_index_css"
-                TEMPLATE="--templat=$root_index_template"
+                TEMPLATE="--template=$root_index_template"
                 if [[ "$root_index_toc" = "true" ]]; then TOC="--toc"; fi
                 MATH="$root_index_math"
+                # PAGETITLE='--metadata pagetitle="$site_name"'
             ;;
         esac
+        # echo $PAGETITLE
         pandoc $SOURCE $CSS $TEMPLATE $TOC $MATH -o $DESTINATION
     ;;
     esac
