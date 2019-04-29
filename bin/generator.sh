@@ -100,7 +100,7 @@ function transform_draft_to_article
 }
 
 # All the logic part is here, calling functions.
-remind_site_parameters 
+#remind_site_parameters 
 list_drafts
 get_user_draft
 get_article_metadata "$site_drafts/$DRAFT_ARTICLE_SELECTED"
