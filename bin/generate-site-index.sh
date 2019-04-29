@@ -22,7 +22,16 @@ fi
 
 function list_articles
 {
-    find "$site_dir" -name "$draft_name" > $tmp_dir/articles-list.txt
+    find "$site_dir" -name "$draft_name" | sort -nr > "$tmp_dir/articles-list.txt"
+}
+
+function backup_old_index
+{
+    if [[ -f $site_dir/index.md ]];
+    then
+        mv "$site_dir/index.md" "$site_dir/index.md.bak"
+        rm "$site_dir/index.html"
+    fi
 }
 
 function update_index
@@ -33,10 +42,11 @@ function update_index
         create_variables "$(sed "${i}q;d" $tmp_dir/articles-list.txt)"
         printf "## [%s](%s) \n" "$title" "$(sed "${i}q;d" $tmp_dir/articles-list.txt | sed "s/draft.md/${site_page}/g")" >> "$site_dir/index.md"
         printf "%s\n%s\n%s\n" "\`\`\`" "$abstract" "\`\`\`" >> "$site_dir/index.md"
-        printf "%s\n" "---" >> "$site_dir/index.md"
+        printf "%s\n\n" "---" >> "$site_dir/index.md"
     done
     transform_to_html "${site_dir}/index.md" "${site_dir}/${site_page}" "root_index"
 }
 
 list_articles
+backup_old_index
 update_index
