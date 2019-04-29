@@ -32,7 +32,7 @@ function update_index
     do
         create_variables "$(sed "${i}q;d" $tmp_dir/articles-list.txt)"
         printf "## [%s](%s) \n" "$title" "$(sed "${i}q;d" $tmp_dir/articles-list.txt | sed "s/draft.md/${site_page}/g")" >> "$site_dir/index.md"
-        printf "``` ${abstract}  ```\n" >> "$site_dir/index.md"
+        printf "%s\n%s\n%s\n" "\`\`\`" "$abstract" "\`\`\`" >> "$site_dir/index.md"
         printf "%s\n" "---" >> "$site_dir/index.md"
     done
     transform_to_html "${site_dir}/index.md" "${site_dir}/${site_page}" "root_index"
