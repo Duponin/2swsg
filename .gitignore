@@ -1,6 +1,3 @@
 # Project specific folders
+articles/*
 drafts/*
-site/*
-
-# Temp files
-*.swp

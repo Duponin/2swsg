@@ -262,12 +262,12 @@ h2
     padding-left: 2%
 }
 
-h2:before
+/*h2:before
 {
     content: counter(h2counter) ".\0000a0\0000a0";
     counter-increment: h2counter;
 }
-
+*/
 h3
 {
     font-size: 1em;
@@ -278,12 +278,12 @@ h3
     padding-left: 4%
 }
 
-h3:before
+/*h3:before
 {
     content: counter(h3counter) ".\0000a0\0000a0";
     counter-increment: h3counter;
 }
-
+*/
 h4
 {
     font-size: 1em;
@@ -294,12 +294,12 @@ h4
     padding-left: 6%
 }
 
-h4:before
+/*h4:before
 {
     content: counter(h4counter) ".\0000a0\0000a0";
     counter-increment: h4counter;
 }
-
+*/
 h5
 {
     font-size: 1em;
@@ -310,12 +310,12 @@ h5
     padding-left: 8%
 }
 
-h5:before
+/*h5:before
 {
     content: counter(h5counter) ".\0000a0\0000a0";
     counter-increment: h5counter;
 }
-
+*/
 h6
 {
     font-size: 1em;
@@ -325,8 +325,9 @@ h6
     padding-left: 10%
 }
 
-h6:before
+/*h6:before
 {
     content: counter(h6counter) ".\0000a0\0000a0";
     counter-increment: h6counter;
 
+*/
