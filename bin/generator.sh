@@ -80,14 +80,20 @@ function generate_article_path
     fi
 }
 
-function sanitize_title
+function sanitize_url
 {
-    SANITIZE_TITLE="$(echo $title | sed 's/\ /-/g')" # " " -> "-"
+    # According to RFC 3986, kind of
+    SANITIZED_URL=$(echo $title | tr -d '[:punct:]')
+
+    # And a little extras
+    SANITIZED_URL=$(echo $SANITIZED_URL | sed 's/\ /-/g') # " " -> "-"
+
+    echo $SANITIZED_URL
 }
 
 function create_article_directory
 {
-    ARTICLE_LOCATION="$(echo $site_dir/$ARTICLE_DIR/$SANITIZE_TITLE)"
+    ARTICLE_LOCATION="$(echo $site_dir/$ARTICLE_DIR/$SANITIZED_URL)"
     mkdir -p $(echo $ARTICLE_LOCATION)
 }
 
@@ -105,7 +111,7 @@ list_drafts
 get_user_draft
 get_article_metadata "$site_drafts/$DRAFT_ARTICLE_SELECTED"
 generate_article_path
-sanitize_title
+sanitize_url
 create_article_directory
 transform_draft_to_article
 
