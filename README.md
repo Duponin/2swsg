@@ -22,7 +22,7 @@ what we want to. Furthermore, HTML is an hideous language, impossible to read
 without annoyance for a human. That's why a supported language list is available
 `(soon)`.
 
-Another point about simple, is CSS don't watch about id and class and only tag
+Another point about simple, is CSS don't watch about id and class but only tag's
 name. With that simplicity you can you a simple text parser to generate your
 HTML without needing to insert somewhere the correct and cryptic class or id.
 
@@ -100,6 +100,6 @@ Currently supported:
 
 * `pandoc`
 
-# Credits
+# Credit
 
-YAML parser in Bash: [here](https://github.com/jasperes/bash-yaml)
+Bash YAML parser: [here](https://github.com/jasperes/bash-yaml)
