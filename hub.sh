@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-# Text colors
-LIGHT_BLUE="\033[1;34m"
-ORANGE="\033[0;33m"
-GREEN="\033[0;32m"
-WHITE="\033[1;37m"
-NC="\033[0m"
+source ./lib/text-effects.sh
 
-printf "${WHITE}What do you want to do?${NC} ('q' to exit)\n"
-printf "\t${LIGHT_BLUE}1. ${ORANGE}Transform draft to article${NC}\n"
-printf "\t${LIGHT_BLUE}2. ${ORANGE}Generate root index${NC}\n"
+printf "${WHITE}What do you want to do?${RESET} ('q' to exit)\n"
+printf "\t${CYAN}1. ${YELLOW}Transform draft to article${RESET}\n"
+printf "\t${CYAN}2. ${YELLOW}Generate root index${RESET}\n"
 read USER_SELECTION 
 
 case "$USER_SELECTION" in
